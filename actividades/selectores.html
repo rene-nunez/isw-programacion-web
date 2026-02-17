@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Investigación sobre CSS y selectores</title>
+	<link rel="stylesheet" href="selectores.css">
+</head>
+<body>
+	<h1>Investigación sobre CSS y selectores</h1>
+
+    <button>Button</button> <!--CSS Hover-->
+
+    <h2>Medidas relativas</h2>
+    <p>Tipo de medida que a diferencia de las medidas absolutas, depende de algún otro factor o elemento (elemento padre, tamaño de letra, etc).</p>
+
+    <h3>La unidad % (porcentaje)</h3>
+    <p>Depende del tamaño del contenedor padre.</p>
+
+    <div class="parent">
+        <div class="child"></div>
+    </div>
+
+    <h3>La unidad em</h3>
+    <p>
+        Depende del font-size del elemento padre.<br>
+        1 em = el tamaño de fuente del contenedor padre
+    </p>
+
+    <div class="parent-element">
+        parent-element
+        <div class="child-element">
+            child-element 2em
+        </div>
+    </div>
+
+    <h3>La unidad rem (root em)</h3>
+    <p>
+        Depende del font-size del elemento raíz (html).
+        1 rem = el tamaño de fuente del html
+    </p>
+
+    <div></div>
+</body>
+</html>
