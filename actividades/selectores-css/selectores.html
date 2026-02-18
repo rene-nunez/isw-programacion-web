@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS y selectores</title>
+    <link rel="stylesheet" href="selectores.css">
+</head>
+<body>
+	<header>
+        <h1>Investigación sobre CSS y selectores</h1>
+        <button>Pasar el mouse por encima</button>
+    </header>
+    
+    <section>
+        <h2>Medidas relativas</h2>  
+        <p>Tipo de medida que a diferencia de las medidas absolutas, depende de algún otro factor o elemento (elemento padre, tamaño de letra, etc).</p>
+        
+        <ul>
+            <li>em se basa en el tamaño de fuente del elemento padre.</li>
+            <li>rem se basa en el tamaño de fuente de la raíz (html).</li>
+            <li>ex corresponde a la altura de la letra "x" del tipo de letra usado.</li>
+        </ul>
+
+        <p>La unidad % (porcentaje) no tiene un significado fijo, depende de la propiedad CSS y del contexto. Por ejemplo el siguiente div define un objeto padre de 100x100 pixeles, y el elemento hijo toma el 50% de este. En este caso el porcentaje depende del tamaño del contenedor padre.</p>
+
+        <div class="div-parent">
+            <div class="div-child"></div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Bordes con diferentes medidas absolutas</h2>
+        <p>Cuando hablamos de medidas absolutas, nos referimos a unidades que no dependen de ningún otro elemento ni del tamaño de fuente del contenedor.</p>
+
+        <article>
+            <div id="borde1">Borde de 2px negro</div>
+        </article>
+
+        <article>
+            <div id="borde2">Borde de 2px punteado gris</div>
+        </article>
+        
+        <article>
+            <div id="borde3">Borde de 2px indigo</div>
+        </article>
+    </section>
+
+    <section>
+        <h2 class="grande">Clase grande</h2>
+        <span class="azul">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+  </section>
+
+    <section>
+        <h2>Modelo de caja en CSS</h2>
+        <p>Establece que cada elemento en un elemento HTML es una caja, que consta de 4 partes:</p>
+
+        <ul>
+            <li>Content: el contenido o parte central del elemento.</li>
+            <li>Padding: es el espacio interno transparente que rodea al contenido.</li>
+            <li>Border: es el borde o linea que rodea al padding y al contenido.</li>
+            <li>Margen: espacio externo transparente que rodea el borde. Se usa para separar un elemento de otros elementos.</li>
+        </ul>
+
+        <img class="imagen" src="./assets/modelo-caja.png" alt="imagen del modelo de caja en CSS">
+        
+        <div>
+            <a href="https://www.w3schools.com/css/css_boxmodel.asp">Recursos de w3schools</a>
+        </div>
+    </section>
+
+    <section>
+        <h2>Selectores CSS</h2>
+
+        <p>Párrafo uno</p>
+        <p>Párrafo dos (p + p)</p>
+
+        <div>
+            <p>Párrafo hijo del div (div > p)</p>
+        </div>
+
+        <p>Párrafo después del div (div + p)</p>
+
+        <p id="azul">Párrafo con id azul</p>
+
+        <h2 title="otro titulo">Selector de atributo ~=</h2>
+        <h2 lang="es">Selector de atributo |=</h2>
+    </section>
+</body>
+</html>

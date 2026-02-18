@@ -1,0 +1,102 @@
+html {
+    font-family: Arial;
+}
+
+/*Mouse hover*/
+button {
+    color: black;
+}
+
+button:hover { 
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+/* Medidas relativas */
+.div-parent {
+    width: 100px;
+    height: 100px;
+    background: lightgray;
+}
+
+.div-child {
+    width: 50%;
+    height: 50%;
+    background: steelblue;
+}
+
+/* Bordes con diferentes medidas absolutas */
+#borde1 {
+    border: 2px solid black;
+    padding: 10px;
+    margin: 5px;
+}
+
+#borde2 {
+    border: 2px dashed gray;
+    padding: 10px;
+    margin: 5px;
+}
+
+#borde3 {
+    border: 2px solid slateblue;
+    padding: 10px;
+    margin: 5px;
+}
+
+/* Clase "grande" */
+.grande {
+    font-size: 2em;
+}
+
+.azul {
+    color: blue;
+}
+
+/* Modelo de caja */
+.imagen {
+    width: 500px;
+    height: auto;
+}
+
+/*Selectores CSS*/
+
+/* p + p, selecciona el primer párrafo que sigue después de otro párrafo */
+p + p {
+    background-color: lightblue;
+}
+
+div + p {
+    /* div + p, selecciona el primer párrafo después de un div */
+    color: purple;
+}
+
+/* div > p, selecciona todos los párrafos hijos del div */
+div > p {
+    background-color: slateblue;
+}
+
+/* p#azul, selector por id */
+#azul {
+    color: steelblue;
+}
+
+/* p ~ p, selecciona todos los párrafos posteriores */
+p ~ p {
+    border-left: 4px solid lightskyblue;
+}
+
+/* h2[title ~= "otro"], selecciona los elementos con atributo titulo que contengan la palabra "otro" */
+h2[title ~= "otro"] {
+    color: darkblue;
+}
+
+/* h2[lang |= "es"], selecciona los elementos por atributo de idioma */
+h2[lang |= "es"] {
+    font-style: italic;
+}
+
+/* Selector por atributos (no selecciona por valor) */
+[title] {
+    text-decoration: underline;
+}
