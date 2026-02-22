@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de inventario</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Control de inventario</h1>
+    
+    <form id="formProducto">
+        <label for="inputCodigo">
+            Código:<input id="inputCodigo" type="number" required>
+        </label>
+        
+        <label for="inputNombre">
+            Nombre:<input id="inputNombre" type="text" required>
+        </label>
+
+        <label for="inputCantidad">
+            Cantidad:<input id="inputCantidad" type="number" required>
+        </label>
+
+        <label for="inputCosto">
+            Costo:<input id="inputCosto" type="number" required>
+        </label>
+        
+        <label for="inputCategoria">
+            Categoría:<input id="inputCategoria" type="text" required>
+        </label>
+        
+        <button id="addProduct" type="submit">Agregar</button>
+        <button type="reset">Reset</button>
+    </form>
+    <div id="notificaciones"></div>
+    <script src="index.js"></script>
+</body>
+</html>
