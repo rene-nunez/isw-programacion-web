@@ -27,11 +27,34 @@
                             <h5 class="card-title">${post.title}</h5>
                             <p class="card-text">${post.body}</p>
                             <button class="btn btn-primary" onclick="verComentarios(${post.id})">Ver comentarios</button>
+                        </div>
                     </div>
                     
-                    <div id="post-${post.id}></div>`;
+                    <div id="post-${post.id}" class="comments-container"></div>`
                 });
 
                 divPosts.innerHTML = divUserPosts;
             });
     });
+
+    function verComentarios(postID) {
+        let div = document.getElementById(`post-${postID}`);
+
+        fetch(`https://jsonplaceholder.typicode.com/comments?postId=${postID}`)
+            .then(response => response.json())
+            .then(comments => {
+                let divComments = "";
+
+                comments.forEach(comment => {
+                    divComments += `
+                    <div class="card">    
+                        <div class="card-body">
+                            <h6 class="card-title">${comment.name}</h6>
+                            <p class="card-text">${comment.body}</p>
+                        </div>
+                    </div>`
+                });
+
+                div.innerHTML = divComments;
+            });
+    }
