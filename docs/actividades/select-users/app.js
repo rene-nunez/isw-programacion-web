@@ -28,47 +28,86 @@
                             <p class="card-text">${post.body}</p>
                             <button class="btn btn-primary" onclick="verComentarios(${post.id})">Ver comentarios</button>
                             <button class="btn btn-primary" onclick="ocultarComentarios(${post.id})">Ocultar comentarios</button>
+                            
+                            <div id="formComentario-${post.id}">
+                                <input type="text" id="name-${post.id}" placeholder="Nombre" required>
+                                <input id="body-${post.id}" placeholder="Comentario" required>                            
+                                <button onclick="agregarComentario(${post.id})">Agregar Comentario</button>
+                            </div>
                         </div>
                     </div>
                     
                     <div id="post-${post.id}" class="comments-container"></div>`
                 });
-
+                
                 divPosts.innerHTML = divUserPosts;
             });
     });
 
-    window.verComentarios = (postID) => {
-        let div = document.getElementById(`post-${postID}`);
+    window.verComentarios = (postId) => {
+        let divComentarios = document.getElementById(`post-${postId}`);
 
-        if(div.innerHTML !== "") {
-            div.style.display = "block";
+        if(divComentarios.innerHTML !== "") {
+            divComentarios.style.display = "block";
             return null;
         }
 
-        fetch(`https://jsonplaceholder.typicode.com/comments?postId=${postID}`)
+        fetch(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`)
             .then(response => response.json())
-            .then(comments => {
-                let divComments = "";
+            .then(comentarios => {
+                let divComentariosPost = "";
 
-                comments.forEach(comment => {
-                    divComments += `
+                comentarios.forEach(comentario => {
+                    divComentariosPost += `
                     <div class="card">    
                         <div class="card-body">
-                            <h5 class="card-title">${comment.name}</h5>
-                            <p class="card-text">${comment.body}</p>
+                            <h5 class="card-title">${comentario.name}</h5>
+                            <p class="card-text">${comentario.body}</p>
                         </div>
                     </div>`
                 });
 
-                div.innerHTML = divComments;
+                divComentarios.innerHTML += divComentariosPost;
             });
     }
 
-    window.ocultarComentarios = (postID) => {
-        let div = document.getElementById(`post-${postID}`);
+    window.ocultarComentarios = (postId) => {
+        let divComentarios = document.getElementById(`post-${postId}`);
 
-        if(div) {
-            div.style.display = "none"; // para ocultarlo sin borrarlo
+        if(divComentarios) {
+            divComentarios.style.display = "none"; // para ocultarlo sin borrarlo
         }
+    }
+
+    window.agregarComentario = (postId) => {
+
+        let name = document.getElementById(`name-${postId}`).value;
+        let body = document.getElementById(`body-${postId}`).value;
+
+        let divComentarios = document.getElementById(`post-${postId}`);
+
+        fetch(`https://jsonplaceholder.typicode.com/comments/`, {
+            method: 'POST',
+            body: JSON.stringify({
+                postId: postId,
+                name: name,
+                body: body
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+        .then(response => response.json())
+        .then(comentario => {
+            divComentarios.innerHTML += `
+                <div class="card">    
+                    <div class="card-body">
+                        <h5 class="card-title">${comentario.name}</h5>
+                        <p class="card-text">${comentario.body}</p>
+                    </div>
+                </div>`;
+
+            document.getElementById(`name-${postId}`).value = "";
+            document.getElementById(`body-${postId}`).value = "";
+        });
     }
