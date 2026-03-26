@@ -1,0 +1,18 @@
+{
+  "name": "node-introduccion",
+  "version": "1.0.0",
+  "description": "Introducción a Node.js",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "node --watch src/app.js"
+  },
+  "keywords": [],
+  "author": "rene-nunez",
+  "license": "unlicensed",
+  "type": "module",
+  "dependencies": {
+    "express": "^5.2.1",
+    "mysql": "^2.18.1"
+  }
+}

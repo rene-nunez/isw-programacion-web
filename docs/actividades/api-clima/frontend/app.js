@@ -21,7 +21,7 @@ pais.addEventListener("change", () => {
 })
 
 window.climaBtn = (pais) => {
-    fetch(`https://api.weatherstack.com/current?access_key=nokey&query=${pais}`)
+    fetch(`http://localhost:3000/clima/${pais}`)
         .then(res => res.json())
         .then(pais => {
             let content = "";
