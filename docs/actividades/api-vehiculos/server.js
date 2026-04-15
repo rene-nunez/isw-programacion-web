@@ -28,7 +28,7 @@ class Almacen {
 
     buscar(placa) {
         for(let i = 0; i < this.vehiculos.length; i++) {
-            if(this.vehiculos[i].placa = placa) {
+            if(this.vehiculos[i].placa === placa) {
                 return this.vehiculos[i];
             }
         }
@@ -40,7 +40,7 @@ class Almacen {
         let temp = null;
         
         for(let i = 0; i < this.vehiculos.length; i++) {
-            if(this.vehiculos[i].placa = placa) {
+            if(this.vehiculos[i].placa === placa) {
                 temp = this.vehiculos[i];
                 this.vehiculos.splice(i, 1);
                 return temp;
