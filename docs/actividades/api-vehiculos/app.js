@@ -38,3 +38,16 @@ btnListar.addEventListener("click", () => {
             });
         })
 })
+
+btnBuscar.addEventListener("click", () => {
+    const placa = document.getElementById("placa").value;
+
+    if(!placa) {
+        console.warn("Ingresar una placa válida");
+        return;
+    }
+
+    fetch(`http://localhost:3000/vehiculos/${placa}`)
+        .then(res => res.json())
+        .then(data => console.log(data.res))
+})
